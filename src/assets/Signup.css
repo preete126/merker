@@ -1,13 +1,13 @@
 .formColor {
     background-color: transparent;
 }
-.inputStyle {
+.form-control { 
     padding: 10px;
     border-radius: 20px 20px 20px 20px;
-    border: 1px solid rgba(70, 101, 9, 0.741);
+    border: 1px solid red;
 }
-.inputStyle:focus {
-    outline: 3px solid rgba(70, 101, 9, 0.741);
+.form-control:focus {
+outline: 3px solid rgba(70, 101, 9, 0.741)  !important;
 }
 .form-control:focus {
     border: none;
@@ -40,8 +40,3 @@
 max-width: 500px;
 min-width: 230px;
 }
-/* @media only screen and (min-width:546px) {
-    .formColor {
-        width: 300px;
-    }
-} */

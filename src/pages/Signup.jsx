@@ -96,7 +96,7 @@ const Signup = () => {
                       onChange={(e) =>
                         (createAcc.current.firstName = e.target.value)
                       }
-                      className={`form-control  inputStyle`}
+                      className={`form-control`}
                     />
                   </div>
                   <div className="mb-3">
@@ -107,7 +107,7 @@ const Signup = () => {
                       onChange={(e) =>
                         (createAcc.current.lastName = e.target.value)
                       }
-                      className={`form-control  inputStyle`}
+                      className={`form-control`}
                     />
                   </div>
                   <div className="mb-3">
@@ -118,7 +118,7 @@ const Signup = () => {
                       onChange={(e) =>
                         (createAcc.current.password = e.target.value)
                       }
-                      className={`form-control outline-warning inputStyle`}
+                      className={`form-control outline-warnin`}
                     />
                   </div>
                   <div className="mb-3">
@@ -132,19 +132,19 @@ const Signup = () => {
                       onChange={(e) =>
                         (createAcc.current.email = e.target.value)
                       }
-                      className={`form-control inputStyle`}
+                      className={`form-control`}
                     />
                   </div>
                   <div className="mb-3">
                     <label className="form-label TextForm">Password *</label>{" "}
-                    <span className="passwordComment">password (>) 7</span>
+                    <span className="passwordComment">password 7</span>
                     <input
                       required
                       type="password"
                       onChange={(e) =>
                         (createAcc.current.password = e.target.value)
                       }
-                      className={`form-control outline-warning inputStyle`}
+                      className={`form-control outline-warnin`}
                     />
                   </div>
                   <button type="submit" className="btnForm w-50">
