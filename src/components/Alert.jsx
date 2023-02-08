@@ -11,7 +11,10 @@ const Alert = ({ closeAlert, alertMessage }) => {
 
   return (
     <div className="alert">
-      <p className="text-center"> {alertMessage} </p>
+      <p className="text-center">
+        {" "}
+        <i class="bi bi-exclamation-triangle m-2"></i> {alertMessage}{" "}
+      </p>
     </div>
   );
 };

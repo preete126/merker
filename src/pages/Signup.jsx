@@ -16,6 +16,7 @@ const Signup = () => {
     firstName: "",
     lastName: "",
     email: "",
+    bvn: "",
     password: "",
   });
 
@@ -28,7 +29,6 @@ const Signup = () => {
         return (registeredUser = true);
       }
     });
-
     if (registeredUser == true) {
       setalert(true);
       setalertMessage("user already exist, proceed to login");
@@ -36,6 +36,7 @@ const Signup = () => {
       !createAcc.current.email.includes("@") &&
       createAcc.current.firstName &&
       createAcc.current.lastName &&
+      createAcc.current.bvn &&
       createAcc.current.password
     ) {
       setalert(true);
@@ -44,6 +45,16 @@ const Signup = () => {
       createAcc.current.email.includes("@") &&
       createAcc.current.firstName &&
       createAcc.current.lastName &&
+      createAcc.current.password &&
+      createAcc.current.bvn.length < 10
+    ) {
+      setalert(true);
+      setalertMessage("BVN must be 10 numbers");
+    } else if (
+      createAcc.current.email.includes("@") &&
+      createAcc.current.firstName &&
+      createAcc.current.lastName &&
+      createAcc.current.bvn &&
       createAcc.current.password.length < 8
     ) {
       setalert(true);
@@ -111,17 +122,6 @@ const Signup = () => {
                     />
                   </div>
                   <div className="mb-3">
-                    <label className="form-label TextForm">BVN *</label>
-                    <input
-                      required
-                      type="password"
-                      onChange={(e) =>
-                        (createAcc.current.password = e.target.value)
-                      }
-                      className={`form-control outline-warnin`}
-                    />
-                  </div>
-                  <div className="mb-3">
                     <label className="form-label TextForm">
                       Email address *
                     </label>
@@ -136,8 +136,19 @@ const Signup = () => {
                     />
                   </div>
                   <div className="mb-3">
+                    <label className="form-label TextForm">BVN *</label>
+                    <input
+                      required
+                      type="password"
+                      onChange={(e) => (createAcc.current.bvn = e.target.value)}
+                      className={`form-control outline-warnin`}
+                    />
+                  </div>
+                  <div className="mb-3">
                     <label className="form-label TextForm">Password *</label>{" "}
-                    <span className="passwordComment">password 7</span>
+                    <span className="passwordComment">
+                      password more than 7
+                    </span>
                     <input
                       required
                       type="password"
