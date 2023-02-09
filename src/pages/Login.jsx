@@ -61,7 +61,7 @@ const Login = () => {
           <div className="divWithin ">
             <main>
               <main className="w-75 m-auto mt-5">
-                <h5 className="text-center LoginText ">Login Account</h5>
+                <h5 className="text-center LoginTextTop ">Login Account</h5>
                 <form
                   onSubmit={onlogin}
                   className="formColor p-4 shadow-lg m-auto"
@@ -116,6 +116,19 @@ const Login = () => {
                         <span className="LoginText fw-bold">Create one ..</span>
                       </Link>
                     </li>
+                  </p>
+                </div>
+                <div>
+                  <p className="text-center LoginText fw-bold">
+                    <Link
+                      to={"/reset"}
+                      className="btn btn-link link-dark text-decoration-none text-warning"
+                      style={{ marginTop: "-60px" }}
+                    >
+                      <span className="LoginText fw-bold">
+                        forgot passsword? , click here to reset
+                      </span>
+                    </Link>
                   </p>
                 </div>
               </main>

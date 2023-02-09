@@ -6,6 +6,7 @@ import "./index.css";
 import GlobalProvider from "./Provider/GlobalProvider";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import ResetPassword from "./pages/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/reset",
+    element: <ResetPassword />,
   },
 ]);
 

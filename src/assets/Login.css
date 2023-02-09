@@ -40,7 +40,12 @@
 
 .LoginText {
     color: rgba(70, 101, 9, 0.741);
-    font-size: 20px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.LoginTextTop {
+    color: rgba(70, 101, 9, 0.741);
+    font-size: 25px;
     margin-bottom: 20px;
 }
 
