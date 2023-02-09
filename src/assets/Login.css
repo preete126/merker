@@ -1,0 +1,50 @@
+.formColor {
+    background-color: transparent;
+}
+
+.form-control {
+    padding: 10px;
+    border-radius: 20px 20px 20px 20px;
+    border: 1px solid red;
+}
+
+.form-control:focus {
+    outline: 3px solid rgba(70, 101, 9, 0.741) !important;
+}
+
+.form-control:focus {
+    border: none;
+}
+
+.TextForm {
+    color: rgba(70, 101, 9, 0.741);
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.passwordComment {
+    font-size: 10px;
+    color: rgba(70, 101, 9, 0.741);
+}
+
+.btnForm {
+    background-color: rgba(70, 101, 9, 0.741);
+    color: white;
+    padding: 10px;
+    border-radius: 20px 20px 20px 20px;
+    margin-top: 10px;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.LoginText {
+    color: rgba(70, 101, 9, 0.741);
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.formColor {
+    max-width: 500px;
+    min-width: 230px;
+}

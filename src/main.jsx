@@ -5,7 +5,7 @@ import App from "./App";
 import "./index.css";
 import GlobalProvider from "./Provider/GlobalProvider";
 import Signup from "./pages/Signup";
-// import Login from "./Pages/Login";
+import Login from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -17,10 +17,10 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <Signup />,
   },
-  // {
-  //   path: "/login",
-  //   element: <Login />,
-  // },
+  {
+    path: "/login",
+    element: <Login />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

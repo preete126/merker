@@ -21,6 +21,17 @@ function App() {
             Sign Up
           </button>
         </Link>{" "}
+        <Link
+          to={"/login"}
+          className="btn btn-link link-dark text-decoration-none text-warning"
+        >
+          <button className="btnLog" type="submit">
+            <span>
+              <i className="bi bi-box-arrow-in-right me-2"></i>{" "}
+            </span>
+            Log In
+          </button>{" "}
+        </Link>
       </main>
     </section>
   );
