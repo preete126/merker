@@ -4,10 +4,11 @@
 .form-control { 
     padding: 10px;
     border-radius: 20px 20px 20px 20px;
-    border: 1px solid red;
+    background-color: rgb(245,245,246);
 }
 .form-control:focus {
-outline: 3px solid rgba(70, 101, 9, 0.741)  !important;
+    outline: 3px solid rgba(70, 101, 9, 0.741)  !important;
+    box-shadow: none;
 }
 .form-control:focus {
     border: none;
@@ -37,6 +38,13 @@ outline: 3px solid rgba(70, 101, 9, 0.741)  !important;
     margin-bottom: 20px;
 }
 .formColor {
-max-width: 500px;
-min-width: 230px;
+    max-width: 500px;
+    min-width: 230px;
+}
+.policy a{
+    color: rgba(70, 101, 9, 0.741);
+    text-decoration: none;
+}
+input[type=checkbox]{
+    accent-color: rgba(70, 101, 9, 0.741);;
 }

@@ -2,11 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import App from "./App";
-import "./index.css";
 import GlobalProvider from "./Provider/GlobalProvider";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
-import ResetPassword from "./pages/ResetPassword";
+import "bootstrap/dist/js/bootstrap.bundle.min"
+import { Suspense } from "react";
+import './assets/styles/index.scss'
+
+const Signup = React.lazy(()=> import("./pages/Signup"))
+const Login = React.lazy(()=> import("./pages/Login"))
+const ResetPassword = React.lazy(()=> import("./pages/ResetPassword"))
+
 
 const router = createBrowserRouter([
   {
@@ -30,8 +34,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <GlobalProvider>
-      <RouterProvider router={router} />
-    </GlobalProvider>
+    <Suspense>
+      <GlobalProvider>
+        <RouterProvider router={router} />
+      </GlobalProvider>
+    </Suspense>
   </React.StrictMode>
 );

@@ -4,7 +4,7 @@ import { GlobalContext } from "../Provider/GlobalProvider";
 import { useContext } from "react";
 import Alert from "../components/Alert";
 import { Link } from "react-router-dom";
-import "../assets/Login.css";
+import "../assets/styles/Login.css";
 
 const Login = () => {
   const { Store, setStore, alert, setalert, alertMessage, setalertMessage } =

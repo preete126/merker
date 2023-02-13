@@ -1,10 +1,11 @@
 import React, { Component, useRef, useState } from "react";
-// import DefaultLayout from "../Layout/Defaultlayout";
+import { Link} from "react-router-dom"
 import GlobalProvider from "../Provider/GlobalProvider";
 import { GlobalContext } from "../Provider/GlobalProvider";
 import { useContext } from "react";
 import Alert from "../components/Alert";
-import "../assets/Signup.css";
+import "../assets/styles/Signup.css";
+import logo from "../assets/images/hacks-removebg-preview.png";
 // import "animate.css";
 
 const Signup = () => {
@@ -79,17 +80,20 @@ const Signup = () => {
 
   return (
     <section>
-      <main className="m-5">
-        <div className="loginDiv">
-          <div className="divWithin">
-            <div className="text-center ">
+      <main className="" style={{fontFamily:"'Poppins', sans-serif"}}>
+        <div className="loginDiv w-100 d-flex">
+          <div className="divWithin w-50 p-4 ">
+            <div className="policy mb-5 text-end pe-4 pb-5 " >
+              Already a member? <Link to={"/login"}>Sign in now</Link>
+            </div>
+            <div className="ms-4">
               <h5 className="colorRandom">Create Account</h5>
             </div>
             <main>
               <main className=" m-auto">
                 <form
                   onSubmit={SubmitUser}
-                  className="formColor p-4 shadow-lg m-auto"
+                  className=" p-4 "
                 >
                   <div className="mb-3">
                     <div className="text-center colorTextForm">
@@ -158,13 +162,25 @@ const Signup = () => {
                       className={`form-control outline-warnin`}
                     />
                   </div>
-                  <button type="submit" className="btnForm w-50">
+                  <div className="policy d-flex gap-2 py-2">
+                    <input type="checkbox" name="" id="" />
+                    <div>I agree to the <a href="#">Terms</a> and <a href="#"> Private Policy</a></div>
+                  </div>
+                  <button type="submit" className="btnForm w-100">
                     Submit
                   </button>
                 </form>
               </main>
               <main></main>
             </main>
+          </div>
+          <div className=" w-50 bg-light px-5">
+            <div style={{marginTop:"-40px"}}>
+              <img src={logo} width={250} alt="" />
+            </div>
+            <div className=" ms-4 mt-5 pt-5 w-75" style={{fontWeight:"500", fontSize:"50px"}}>
+            Join the largest Money lending community in the world.
+            </div>
           </div>
         </div>
       </main>
