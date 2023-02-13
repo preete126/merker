@@ -9,7 +9,8 @@ import './assets/styles/index.scss'
 
 const Signup = React.lazy(()=> import("./pages/Signup"))
 const Login = React.lazy(()=> import("./pages/Login"))
-const ResetPassword = React.lazy(()=> import("./pages/ResetPassword"))
+const ResetPassword = React.lazy(()=> import("./pages/forgotPassword/ResetPassword"))
+const Otp = React.lazy(()=> import("./pages/forgotPassword/otp"))
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/reset",
     element: <ResetPassword />,
+  },
+  {
+    path: "/otp",
+    element: <Otp/>,
   },
 ]);
 
