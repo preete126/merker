@@ -9,8 +9,6 @@
 .form-control:focus {
     outline: 3px solid rgba(70, 101, 9, 0.741)  !important;
     box-shadow: none;
-}
-.form-control:focus {
     border: none;
 }
 .TextForm {
@@ -47,4 +45,30 @@
 }
 input[type=checkbox]{
     accent-color: rgba(70, 101, 9, 0.741);;
+}
+.otpForm input{
+    width: 90px;
+    height: 55px;
+    text-align: center;
+    color: gray;
+    background-color: white;
+    border:0.5px solid lightgray;
+    font-size: 25px;
+}
+.otpForm input:focus{
+    outline: 1px solid rgba(70, 101, 9, 0.212) ;
+}
+
+@media (max-width: 991px){
+    .ADs{
+        max-height: 300px !important;
+    }
+}
+@media (max-width: 360px){
+    .otp_container{
+        width: 100% !important;
+    }
+    .otpForm input{
+        width: 25%;
+    }
 }

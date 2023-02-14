@@ -1,10 +1,10 @@
 import React, { Component, useRef, useState } from "react";
-import GlobalProvider from "../Provider/GlobalProvider";
 import { GlobalContext } from "../Provider/GlobalProvider";
 import { useContext } from "react";
 import Alert from "../components/Alert";
 import { Link } from "react-router-dom";
-import "../assets/styles/Login.css";
+import "../assets/styles/Auth.css";
+import Sidebar from "../components/authDefault";
 
 const Login = () => {
   const { Store, setStore, alert, setalert, alertMessage, setalertMessage } =
@@ -55,16 +55,19 @@ const Login = () => {
   };
 
   return (
-    <section>
-      <main className="mainLogin animate__animated animate__fadeIn">
-        <div className="loginDiv">
-          <div className="divWithin ">
+    <>
+      <main className="mainLogin animate__animated animate__fadeIn" style={{ fontFamily: "'Poppins', sans-serif" }}>
+        <div className="loginDiv w-100 d-flex flex-column flex-lg-row" style={{ height: "100vh" }}>
+          <div className="divWithin w-100 w-lg-50 p-3 p-sm-5 ">
             <main>
-              <main className="w-75 m-auto mt-5">
-                <h5 className="text-center LoginTextTop ">Login Account</h5>
+              <main className=" m-auto ">
+                <div className="policy mb-5 pe-sm-4 text-center text-sm-end pb-5 " >
+                  Not a member? <Link to={"/signup"}>Sign up now</Link>
+                </div>
+                <h5 className="ms-sm-2 text-center text-sm-start LoginTextTop colorRandom pb-3">Sign In</h5>
                 <form
                   onSubmit={onlogin}
-                  className="formColor p-4 shadow-lg m-auto"
+                  className=""
                 >
                   <div className="text-center colorTextForm">
                     {alert && (
@@ -76,7 +79,7 @@ const Login = () => {
                   </div>
                   <div className="form-floating mb-3">
                     <input
-                      type="text"
+                      type="email"
                       required
                       className="form-control"
                       id="floatingInput"
@@ -85,8 +88,9 @@ const Login = () => {
                         (createAcc.current.email = e.target.value)
                       }
                     />
-                    <label for="floatingInput">Email address</label>
+                    <label htmlFor="floatingInput">Email address</label>
                   </div>
+
                   <div className="form-floating">
                     <input
                       type="password"
@@ -98,45 +102,36 @@ const Login = () => {
                         (createAcc.current.password = e.target.value)
                       }
                     />
-                    <label for="floatingPassword">Password</label>
+                    <label htmlFor="floatingPassword">Password</label>
                   </div>
-                  <button type="submit" className="btnForm mt-3 w-50">
-                    Submit
-                  </button>
-                </form>
-                <div>
-                  <p className="text-center LoginText fw-bold mt-2">
-                    dont have an account? <br />
-                    <li className="list-group-item">
-                      <Link
-                        to={"/signup"}
-                        className="btn btn-link link-dark text-decoration-none text-warning"
-                        style={{ marginTop: "-7px" }}
-                      >
-                        <span className="LoginText fw-bold">Create one ..</span>
-                      </Link>
-                    </li>
-                  </p>
-                </div>
-                <div>
-                  <p className="text-center LoginText fw-bold">
+                  <div className="d-flex justify-content-between  flex-column flex-sm-row gap-3 gap-sm-0 my-4">
+                    <div className="d-flex gap-2 align-items-center">
+                      <input type="checkbox" name="" id="" />
+                      <div>Remember me</div>
+                    </div>
                     <Link
                       to={"/reset"}
-                      className="btn btn-link link-dark text-decoration-none text-warning"
-                      style={{ marginTop: "-60px" }}
+                      className="text-decoration-none text-success"
+
                     >
-                      <span className="LoginText fw-bold">
-                        forgot passsword? , click here to reset
+                      <span className="">
+                        forgot passsword?
                       </span>
                     </Link>
-                  </p>
-                </div>
+                  </div>
+                  <button type="submit" className="btnForm mt-3 w-100 fs-5">
+                    Sign in
+                  </button>
+                </form>
+
+
               </main>
             </main>
           </div>
+         <Sidebar info={"Join the largest Money lending community in the world."} height={"400px"}/>
         </div>
       </main>
-    </section>
+    </>
   );
 };
 

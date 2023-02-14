@@ -1,11 +1,10 @@
 import React, { Component, useRef, useState } from "react";
 import { Link} from "react-router-dom"
-import GlobalProvider from "../Provider/GlobalProvider";
 import { GlobalContext } from "../Provider/GlobalProvider";
 import { useContext } from "react";
 import Alert from "../components/Alert";
-import "../assets/styles/Signup.css";
-import logo from "../assets/images/hacks-removebg-preview.png";
+import "../assets/styles/Auth.css";
+import Sidebar from "../components/authDefault";
 // import "animate.css";
 
 const Signup = () => {
@@ -79,21 +78,21 @@ const Signup = () => {
   };
 
   return (
-    <section>
+    <>
       <main className="" style={{fontFamily:"'Poppins', sans-serif"}}>
-        <div className="loginDiv w-100 d-flex">
-          <div className="divWithin w-50 p-4 ">
-            <div className="policy mb-5 text-end pe-4 pb-5 " >
+        <div className="loginDiv w-100 d-flex flex-column flex-lg-row">
+          <div className="divWithin w-100 w-lg-50 p-3 p-sm-5 ">
+            <div className="policy mb-5 pe-sm-4 text-center text-sm-end pb-5 " >
               Already a member? <Link to={"/login"}>Sign in now</Link>
             </div>
-            <div className="ms-4">
+            <div className="ms-sm-4 text-center text-sm-start">
               <h5 className="colorRandom">Create Account</h5>
             </div>
             <main>
               <main className=" m-auto">
                 <form
                   onSubmit={SubmitUser}
-                  className=" p-4 "
+                  className=" p-sm-4 "
                 >
                   <div className="mb-3">
                     <div className="text-center colorTextForm">
@@ -131,7 +130,7 @@ const Signup = () => {
                     </label>
                     <input
                       required
-                      type="text"
+                      type="email"
                       placeholder="name@example.com"
                       onChange={(e) =>
                         (createAcc.current.email = e.target.value)
@@ -156,6 +155,7 @@ const Signup = () => {
                     <input
                       required
                       type="password"
+                      minLength={8}
                       onChange={(e) =>
                         (createAcc.current.password = e.target.value)
                       }
@@ -166,25 +166,18 @@ const Signup = () => {
                     <input type="checkbox" name="" id="" />
                     <div>I agree to the <a href="#">Terms</a> and <a href="#"> Private Policy</a></div>
                   </div>
-                  <button type="submit" className="btnForm w-100">
-                    Submit
+                  <button type="submit" className="btnForm w-100 fs-5">
+                    Sign up
                   </button>
                 </form>
               </main>
               <main></main>
             </main>
           </div>
-          <div className=" w-50 bg-light px-5">
-            <div style={{marginTop:"-40px"}}>
-              <img src={logo} width={250} alt="" />
-            </div>
-            <div className=" ms-4 mt-5 pt-5 w-75" style={{fontWeight:"500", fontSize:"50px"}}>
-            Join the largest Money lending community in the world.
-            </div>
-          </div>
+                <Sidebar info={"Join the largest Money lending community in the world."} height={"600px"}/>
         </div>
       </main>
-    </section>
+    </>
   );
 };
 

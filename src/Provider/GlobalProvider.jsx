@@ -10,6 +10,7 @@ export const GlobalContext = createContext(null);
 const GlobalProvider = ({ children }) => {
   const [alert, setalert] = useState(false);
   const [alertMessage, setalertMessage] = useState("");
+  const [email, setEmail] = useState("")
 
   const [Store, setStore] = useState(
     localStorage.getItem("users")
@@ -24,6 +25,8 @@ const GlobalProvider = ({ children }) => {
     setalert,
     alertMessage,
     setalertMessage,
+    email,
+    setEmail
   };
 
   return (
