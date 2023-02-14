@@ -19,7 +19,7 @@ const Signup = () => {
     bvn: "",
     password: "",
   });
-  //function
+  //function post
   const postUserDetails = async () => {
     try {
       const response = await httpClient.post("/merkerUsers", createAcc.current);
