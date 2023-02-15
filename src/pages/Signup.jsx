@@ -1,15 +1,15 @@
 import React, { Component, useRef, useState } from "react";
-import { Link} from "react-router-dom"
-import { GlobalContext } from "../Provider/GlobalProvider";
-import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Alert from "../components/Alert";
 import "../assets/styles/Auth.css";
 import Sidebar from "../components/authDefault";
+import httpClient from "./Services/httpClients";
 // import "animate.css";
 
 const Signup = () => {
-  const { Store, setStore, alert, setalert, alertMessage, setalertMessage } =
-    useContext(GlobalContext);
+  const navigate = useNavigate();
+  const [alert, setAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
 
   //hooks
   const createAcc = useRef({
@@ -19,28 +19,31 @@ const Signup = () => {
     bvn: "",
     password: "",
   });
+  //function post
+  const postUserDetails = async () => {
+    try {
+      const response = await httpClient.post("/merkerUsers", createAcc.current);
+      setAlert(true);
+      console.log(response);
+      setAlertMessage(response.data.message);
+      navigate("/login");
+    } catch (error) {
+      setAlert(true);
+      setAlertMessage(error.response.data.message);
+    }
+  };
 
   const SubmitUser = (e) => {
     e.preventDefault();
-    let registeredUser = false;
-    Store.map((store) => {
-      //conditions
-      if (store.email === createAcc.current.email) {
-        return (registeredUser = true);
-      }
-    });
-    if (registeredUser == true) {
-      setalert(true);
-      setalertMessage("user already exist, proceed to login");
-    } else if (
+    if (
       !createAcc.current.email.includes("@") &&
       createAcc.current.firstName &&
       createAcc.current.lastName &&
       createAcc.current.bvn &&
       createAcc.current.password
     ) {
-      setalert(true);
-      setalertMessage("email must include @");
+      setAlert(true);
+      setAlertMessage("email must include @");
     } else if (
       createAcc.current.email.includes("@") &&
       createAcc.current.firstName &&
@@ -48,8 +51,8 @@ const Signup = () => {
       createAcc.current.password &&
       createAcc.current.bvn.length < 10
     ) {
-      setalert(true);
-      setalertMessage("BVN must be 10 numbers");
+      setAlert(true);
+      setAlertMessage("BVN must be 10 numbers");
     } else if (
       createAcc.current.email.includes("@") &&
       createAcc.current.firstName &&
@@ -57,32 +60,24 @@ const Signup = () => {
       createAcc.current.bvn &&
       createAcc.current.password.length < 8
     ) {
-      setalert(true);
-      setalertMessage("password must be at least 8 characters");
+      setAlert(true);
+      setAlertMessage("password must be at least 8 characters");
     } else {
-      let newStore = [...Store, { ...createAcc.current }];
-      setStore(newStore);
-      localStorage.setItem("users", JSON.stringify(newStore));
-      setalert(true);
-      setalertMessage("Registered successfully");
-      let input = document.getElementsByTagName("input");
-      for (let index = 0; index < input.length; index++) {
-        input[index].value = "";
-      }
-      console.log(createAcc.current);
+      postUserDetails();
+      // console.log(createAcc.current);
     }
   };
 
   const closeAlert = () => {
-    setalert(false);
+    setAlert(false);
   };
 
   return (
     <>
-      <main className="" style={{fontFamily:"'Poppins', sans-serif"}}>
+      <main className="" style={{ fontFamily: "'Poppins', sans-serif" }}>
         <div className="loginDiv w-100 d-flex flex-column flex-lg-row">
           <div className="divWithin w-100 w-lg-50 p-3 p-sm-5 ">
-            <div className="policy mb-5 pe-sm-4 text-center text-sm-end pb-5 " >
+            <div className="policy mb-5 pe-sm-4 text-center text-sm-end pb-5 ">
               Already a member? <Link to={"/login"}>Sign in now</Link>
             </div>
             <div className="ms-sm-4 text-center text-sm-start">
@@ -90,13 +85,10 @@ const Signup = () => {
             </div>
             <main>
               <main className=" m-auto">
-                <form
-                  onSubmit={SubmitUser}
-                  className=" p-sm-4 "
-                >
+                <form onSubmit={SubmitUser} className=" p-sm-4 ">
                   <div className="mb-3">
                     <div className="text-center colorTextForm">
-                      {alert && (
+                      {Alert && (
                         <Alert
                           closeAlert={closeAlert}
                           alertMessage={alertMessage}
@@ -164,7 +156,10 @@ const Signup = () => {
                   </div>
                   <div className="policy d-flex gap-2 py-2">
                     <input type="checkbox" name="" id="" />
-                    <div>I agree to the <a href="#">Terms</a> and <a href="#"> Private Policy</a></div>
+                    <div>
+                      I agree to the <a href="#">Terms</a> and{" "}
+                      <a href="#"> Private Policy</a>
+                    </div>
                   </div>
                   <button type="submit" className="btnForm w-100 fs-5">
                     Sign up
@@ -174,7 +169,10 @@ const Signup = () => {
               <main></main>
             </main>
           </div>
-                <Sidebar info={"Join the largest Money lending community in the world."} height={"600px"}/>
+          <Sidebar
+            info={"Join the largest Money lending community in the world."}
+            height={"600px"}
+          />
         </div>
       </main>
     </>
