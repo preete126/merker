@@ -128,7 +128,7 @@ const Login = () => {
               </main>
             </main>
           </div>
-         <Sidebar info={"Join the largest Money lending community in the world."} height={"400px"}/>
+         <Sidebar info={"Join the largest Money lending community in the world."} />
         </div>
       </main>
     </>
