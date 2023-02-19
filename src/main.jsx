@@ -11,6 +11,8 @@ const Signup = React.lazy(()=> import("./pages/Signup"))
 const Login = React.lazy(()=> import("./pages/Login"))
 const ResetPassword = React.lazy(()=> import("./pages/forgotPassword/ResetPassword"))
 const Otp = React.lazy(()=> import("./pages/forgotPassword/otp"))
+const New_code = React.lazy(()=> import("./pages/forgotPassword/new_password"))
+const Update = React.lazy(()=> import("./pages/forgotPassword/update"))
 
 
 const router = createBrowserRouter([
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
   {
     path: "/otp",
     element: <Otp/>,
+  },
+  {
+    path: "/new_code",
+    element: <New_code/>,
+  },
+  {
+    path: "/update",
+    element: <Update/>,
   },
 ]);
 
