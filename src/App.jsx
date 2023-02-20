@@ -1,6 +1,7 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import { Link } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
 // import "./App.css";
 
@@ -10,6 +11,9 @@ function App() {
   return (
     <section>
       <main>
+        <Navbar /> <br />
+        <br /> <br />
+        <br />
         <Link
           to={"/signup"}
           className="btn btn-link link-dark text-decoration-none text-warning"
