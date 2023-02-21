@@ -22,7 +22,10 @@ const Signup = () => {
   //function post
   const postUserDetails = async () => {
     try {
-      const response = await httpClient.post("/merkerUsers", createAcc.current);
+      const response = await httpClient.post(
+        "/users/merkerUsers",
+        createAcc.current
+      );
       setAlert(true);
       console.log(response);
       setAlertMessage(response.data.message);

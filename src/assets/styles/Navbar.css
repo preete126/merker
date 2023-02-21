@@ -1,0 +1,42 @@
+.navBarMain {
+    background-color: #466509BD;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+.Logo {
+    color: whitesmoke;
+    padding-left: 30px;
+}
+.navRight {
+    margin-right: 25px;
+}
+.btnLog {
+    border: none;
+    background-color: transparent;
+    transition: 0.3s;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: -20px;
+    color: whitesmoke;
+    font-size: 16px;
+    font-weight: 500;
+}
+.btnLog:hover {
+    box-shadow: 0 2px 0 0 lightgray, 0 2px 0 0 lightgray;
+}
+.toggle {
+    margin-left: 160px;
+}
+.canvasHeader {
+        background-color: #466509BD;
+}
+ closeButton {
+     color: white;
+     padding-right: 20px;
+ }
+ .TextForm {
+     color: rgba(70, 101, 9, 0.741);
+     font-weight: bold;
+     margin-left: 5px;
+ }
