@@ -8,11 +8,13 @@ import Sidebar from "../../components/authDefault";
 
 const ResetPassword = () => {
   const navigate = useNavigate(null)
-  const {setEmail} = useContext(GlobalContext)
+  let {setEmail, email} = useContext(GlobalContext)
   const emailRef = useRef(null)
 
-  const verify = ()=>{
-    setEmail(emailRef.current.value)
+  const verify = (ev)=>{
+    ev.preventDefault();
+    email = emailRef.current.value
+    setEmail(email)
     navigate("/otp")
   }
 
@@ -57,7 +59,7 @@ const ResetPassword = () => {
               </main>
             </main>
           </div>
-        <Sidebar info={"Don't worry, We are here to  help you recover your password."} height={"400px"}/>
+        <Sidebar info={"Don't worry, We are here to  help you recover your password."} />
         </div>
       </main>
     </>

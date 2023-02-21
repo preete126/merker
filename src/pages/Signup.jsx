@@ -160,7 +160,7 @@ const Signup = () => {
                   <div className="policy d-flex gap-2 py-2">
                     <input type="checkbox" name="" id="" />
                     <div>
-                      I agree to the <a href="#">Terms</a> and{" "}
+                      I agree to the <a href="#">Terms</a> and
                       <a href="#"> Private Policy</a>
                     </div>
                   </div>
@@ -172,10 +172,11 @@ const Signup = () => {
               <main></main>
             </main>
           </div>
-          <Sidebar
-            info={"Join the largest Money lending community in the world."}
-            height={"600px"}
-          />
+
+                <Sidebar info={"Join the largest Money lending community in the world."}/>
+
+        
+
         </div>
       </main>
     </>
