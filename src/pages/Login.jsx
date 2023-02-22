@@ -19,20 +19,20 @@ const Login = () => {
 
   const LoginUserDetails = async () => {
     try {
-      const response = await httpClient.post(
-        "/users/search",
-        createAcc.current
-      );
+      const response = await httpClient.post("/users/login", createAcc.current);
       console.log(createAcc);
       setAlert(true);
       console.log(response);
       setAlertMessage(response.data.message);
-      // alert("login successful!");
-      navigate("/");
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
     } catch (error) {
       setAlert(true);
       setAlertMessage(error.response.data.message);
-      navigate("/signup");
+      setTimeout(() => {
+        navigate("/signup");
+      }, 2000);
     }
   };
 
@@ -121,7 +121,10 @@ const Login = () => {
               </main>
             </main>
           </div>
-         <Sidebar info={"Join the largest Money lending community in the world."} />
+          <Sidebar
+            info={"Join the largest Money lending community in the world."}
+            height={"400px"}
+          />
         </div>
       </main>
     </>
