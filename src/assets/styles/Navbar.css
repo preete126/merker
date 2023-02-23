@@ -1,8 +1,10 @@
 .navBarMain {
-    background-color: #466509BD;
+    background-color: red;
     display: flex;
     align-content: center;
     justify-content: space-between;
+    position: fixed;
+    top: 0px;
 }
 .Logo {
     color: whitesmoke;

@@ -14,7 +14,7 @@ const Navbar = () => {
   //   const { theme, count, setTheme, Cart, AddToCart } = useContext(themeContext);
 
   return (
-    <nav className="navbar navBarMain p-2 fixed-top">
+    <nav className="navbar fixed-top  navBarMain p-2  shadow-lg">
       <div className="Logo">
         {/* links */}
         <Link to={"/"} className=" link-light text-decoration-none">
