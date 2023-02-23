@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import { Link } from "react-router-dom";
 import Navbar from "./components/Navbar";
+// import DefaultLayout from "../Layout/DefaultLayout";
 
 // import "./App.css";
 
