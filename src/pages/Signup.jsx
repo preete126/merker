@@ -29,7 +29,9 @@ const Signup = () => {
       setAlert(true);
       console.log(response);
       setAlertMessage(response.data.message);
-      navigate("/login");
+      setTimeout(() => {
+        navigate("/verifyOTP");
+      }, 2000);
     } catch (error) {
       setAlert(true);
       setAlertMessage(error.response.data.message);
@@ -173,10 +175,9 @@ const Signup = () => {
             </main>
           </div>
 
-                <Sidebar info={"Join the largest Money lending community in the world."}/>
-
-        
-
+          <Sidebar
+            info={"Join the largest Money lending community in the world."}
+          />
         </div>
       </main>
     </>

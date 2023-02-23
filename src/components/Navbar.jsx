@@ -25,7 +25,7 @@ const Navbar = () => {
       <div className=" navRight d-none d-md-block ">
         <form className="d-flex" role="search">
           <Link
-            to={"/"}
+            to={"/verifyOTP"}
             className="btn btn-link link-dark text-decoration-none text-warning"
           >
             <button className="btnLog" type="submit">
